@@ -1,24 +1,42 @@
 # README
+## Description
+chat-spase復習用のアプリ
+## Features
+## Requirement
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Database design
+## users table
+|Column|Type|Options|
+|name|string|null:false|
+|email|string|null:false, unique:true|
+|password|string|null:false|
+### Association
+has_many :groups, through: :groups_users
+has_many :groups_users
+has_many :messages
 
-Things you may want to cover:
+## groups table
+|Column|Type|Options|
+|name|string|null:false|
+### Association
+has_many users
+has_many groups_users, through::users
+has_many messages
 
-* Ruby version
+## groups_users table
+|Column|Type|Options|
+|group_id|references:group|foregin_key:true|
+|user_id|references:user|foregin_key:true|
+### Association
+belongs_to :group
+belongs_to :user
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## messages table
+|Column|Type|Options|
+|content|string|null:false|
+|image|string||
+|group_id|references:group|foregin_key:true|
+|user_id|references:user|foregin_key:true|
+### Association
+belongs_to :group
+belongs_to :user

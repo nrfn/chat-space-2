@@ -1,11 +1,9 @@
-# README
-## Description
+# Description
 chat-spase復習用のアプリ
-## Features
-## Requirement
-
+# Features
+# Requirement
 # Database design
-## users table
+## users
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|

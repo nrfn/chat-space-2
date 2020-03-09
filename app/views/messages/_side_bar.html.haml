@@ -10,4 +10,4 @@
       .sidebar__list__contents
         = link_to "#{group.name}", group_messages_path(group), class:"sidebar__list__contents__group"
         %br
-        = link_to "まだメッセージはありません", group_messages_path(group),  class:"sidebar__list__contents__news"
+        = link_to "#{group.show_last_message}", group_messages_path(group),  class:"sidebar__list__contents__news"

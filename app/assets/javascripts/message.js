@@ -15,6 +15,7 @@ $(function(){
         <br>
         <img src=${message.image.url} >
       </div>`
+      console.log(message.image)
       return html;
     } else {
       var html =`
@@ -29,6 +30,7 @@ $(function(){
       <div class="main__messages__message">
         ${message.content}
       </div>`
+      console.log("OK");
       return html;
     };
   }
@@ -48,6 +50,7 @@ $(function(){
     .done(function(data) {
       var html = buildHTML(data);
       $('.main__messages').append(html);
+      $('.main__messages').animate({ scrollTop: $('.main__messages')[0].scrollHeight });
       $('form')[0].reset();
     })
     .fail(function() {

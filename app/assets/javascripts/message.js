@@ -12,7 +12,8 @@ $(function(){
       </div>
       <div class="main__messages__message">
         ${message.content}
-        ${message.image}
+        <br>
+        <img src=${message.image.url} >
       </div>`
       return html;
     } else {
@@ -46,7 +47,8 @@ $(function(){
     })
     .done(function(data) {
       var html = buildHTML(data);
-      console.log(data);
+      $('.main__messages').append(html);
+      $('form')[0].reset();
     })
     .fail(function() {
       console.log('error');

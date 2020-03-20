@@ -6,4 +6,5 @@
 .main__messages__message
   - if message.content.present?
     = message.content
-  = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+    <br>
+    = image_tag message.image.url if message.image.present?

@@ -54,7 +54,7 @@ $(function(){
       $(".form__send").prop("disabled", false);
     })
     .fail(function() {
-      console.log('error');
+      alert("メッセージ送信に失敗しました");
     })
   });
 });

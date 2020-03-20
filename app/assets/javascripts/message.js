@@ -13,9 +13,8 @@ $(function(){
       <div class="main__messages__message">
         ${message.content}
         <br>
-        <img src=${message.image.url} >
+        <img src="${message.image}" >
       </div>`
-      console.log(message.image)
       return html;
     } else {
       var html =`
@@ -52,6 +51,7 @@ $(function(){
       $('.main__messages').append(html);
       $('.main__messages').animate({ scrollTop: $('.main__messages')[0].scrollHeight });
       $('form')[0].reset();
+      $(".form__send").prop("disabled", false);
     })
     .fail(function() {
       console.log('error');

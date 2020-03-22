@@ -3,7 +3,7 @@
     = message.user.name
   .main__messages__data__when
     = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-.main__messages__message
+.main__messages__message{data: {message: {id: message.id}}}
   - if message.content.present?
     = message.content
     <br>
